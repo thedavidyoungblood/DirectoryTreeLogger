@@ -1,0 +1,43 @@
+**********************
+PowerShell transcript start
+Start time: 20241231003951
+Username: C3P03\theda
+RunAs User: C3P03\theda
+Configuration Name: 
+Machine: C3P03 (Microsoft Windows NT 10.0.22631.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll -l -noexit -command try { . "c:\Users\theda\AppData\Local\Programs\cursor\resources\app\out\vs\workbench\contrib\terminal\browser\media\shellIntegration.ps1" } catch {}
+Process ID: 46640
+PSVersion: 7.4.6
+PSEdition: Core
+GitCommitId: 7.4.6
+OS: Microsoft Windows 10.0.22631
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is L:\_DEV_C3P03_PG_MAIN\._._.DEV_PROJs_tDY_C3P03_\._._.0.DEV_SandBox_PG_BEACH_\__DEV_Tinker-BOX_PG\._DEV.PROJ.DIRtreeLOG._v1.0.0_2-beta_24.12.30\setup_log_20241231_003951.txt
+[Info] Starting development environment setup...
+[Info] Workspace root: L:\_DEV_C3P03_PG_MAIN\._._.DEV_PROJs_tDY_C3P03_\._._.0.DEV_SandBox_PG_BEACH_\__DEV_Tinker-BOX_PG\._DEV.PROJ.DIRtreeLOG._v1.0.0_2-beta_24.12.30
+[Info] Checking prerequisites...
+[Warning] Warning: Script is not running with administrator privileges. Some features may be limited.
+[Info] Creating project directory structure...
+[Info] Directory already exists: .ignore._DEV_SILO_RES_
+[Info] Directory already exists: .ignore._DEV_SILO_RES_\docs
+[Info] Directory already exists: .ignore._DEV_SILO_RES_\scripts
+[Success] Created directory: .ignore._DEV_SILO_RES_\AIPP_TOOLbin
+[Info] Directory already exists: .ignore._DEV_SILO_RES_\archived
+[Info] Configuring Git settings...
+[Success] Created .gitignore file
+[Info] Setting up documentation...
+[Success] Created README.md
+[Info] Setting up development tools...
+[Success] Created VSCode settings
+[Info] Setting up configuration files...
+[Success] Created default configuration
+[Success] Setup completed successfully!
+**********************
+PowerShell transcript end
+End time: 20241231003951
+**********************

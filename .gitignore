@@ -1,0 +1,41 @@
+# PowerShell module files
+*.psd1
+*.psm1
+*.ps1xml
+
+# Build output
+bin/
+obj/
+out/
+
+# Test results
+TestResults/
+
+# Package management
+packages/
+*.nupkg
+
+# IDE files
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs and databases
+*.log
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific ignores
+.ignore._DEV_SILO_RES_/temp/
+.ignore._DEV_SILO_RES_/cache/

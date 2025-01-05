@@ -1,0 +1,114 @@
+{
+    "version": "1.0.0-2-beta",
+    "application": {
+        "name": "Directory Tree Logger",
+        "description": "Advanced directory tree logging tool with cross-platform support",
+        "author": "AI-Human Paired Programming Initiative",
+        "license": "MIT",
+        "repository": "https://github.com/user/directory-tree-logger"
+    },
+    "logging": {
+        "defaultMode": "CLEAN",
+        "fileInfo": {
+            "include": true,
+            "maxSize": 100,
+            "sizeUnit": "MB"
+        },
+        "output": {
+            "defaultFormat": "Text",
+            "encoding": "UTF8",
+            "indentation": 2,
+            "maxLineLength": 120,
+            "truncationMarker": "..."
+        },
+        "progress": {
+            "show": true,
+            "refreshInterval": 1000
+        }
+    },
+    "filters": {
+        "exclude": {
+            "patterns": [
+                "node_modules",
+                ".git",
+                ".vs",
+                "bin",
+                "obj"
+            ],
+            "maxFileSize": 100,
+            "sizeUnit": "MB"
+        },
+        "include": {
+            "patterns": [],
+            "minFileSize": 0,
+            "sizeUnit": "MB"
+        },
+        "ignoreHidden": true,
+        "ignoreSystem": true,
+        "maxDepth": -1
+    },
+    "formatters": {
+        "text": {
+            "enabled": true,
+            "colorize": true,
+            "icons": true,
+            "indentChar": "│",
+            "branchChar": "├",
+            "lastBranchChar": "└",
+            "horizontalChar": "─",
+            "showMetadata": true,
+            "showStatistics": true,
+            "showPermissions": false,
+            "showTimestamps": {
+                "created": false,
+                "modified": true,
+                "accessed": false
+            },
+            "showAttributes": true,
+            "showLineCount": true
+        },
+        "json": {
+            "enabled": true,
+            "prettyPrint": true,
+            "includeMetadata": true,
+            "includeStatistics": true,
+            "includePermissions": false,
+            "nullValueHandling": "include",
+            "caseStyle": "camelCase",
+            "excludeProperties": [],
+            "includeProperties": []
+        },
+        "xml": {
+            "enabled": true,
+            "prettyPrint": true,
+            "includeMetadata": true,
+            "includeStatistics": true,
+            "includePermissions": false,
+            "xmlNamespace": "",
+            "excludeAttributes": [],
+            "includeAttributes": []
+        }
+    },
+    "security": {
+        "validatePaths": true,
+        "allowNetworkPaths": false,
+        "sanitizeOutput": true,
+        "maxSymlinkDepth": 10
+    },
+    "performance": {
+        "parallelProcessing": true,
+        "maxThreads": 4,
+        "chunkSize": 1000,
+        "maxMemory": 512,
+        "memoryUnit": "MB"
+    },
+    "plugins": {
+        "directory": ".ignore._DEV_SILO_RES_/scripts/DirectoryTreeLogger/Plugins",
+        "autoLoad": true,
+        "allowedTypes": [
+            "OutputFormatters",
+            "FilterProviders",
+            "LoggingProviders"
+        ]
+    }
+} 

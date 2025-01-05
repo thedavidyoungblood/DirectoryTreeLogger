@@ -1,0 +1,250 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Directory Tree Logger Configuration Schema",
+    "description": "Configuration schema for the Directory Tree Logger application",
+    "type": "object",
+    "required": [
+        "version",
+        "application",
+        "logging",
+        "filters",
+        "output",
+        "performance",
+        "security",
+        "platformSpecific",
+        "plugins",
+        "extensibility"
+    ],
+    "properties": {
+        "version": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z-]+)?$"
+        },
+        "application": {
+            "type": "object",
+            "required": ["name", "description", "author", "license"],
+            "properties": {
+                "name": { "type": "string" },
+                "description": { "type": "string" },
+                "author": { "type": "string" },
+                "license": { "type": "string" }
+            }
+        },
+        "logging": {
+            "type": "object",
+            "required": [
+                "defaultMode",
+                "includeFileInfo",
+                "maxFileSize",
+                "outputFormat",
+                "maxDepth",
+                "showProgress",
+                "logLevel",
+                "logPath"
+            ],
+            "properties": {
+                "defaultMode": {
+                    "type": "string",
+                    "enum": ["CLEAN", "ALL_FILES", "ALL_FOLDERS", "FOLDERS", "EVERYTHING"]
+                },
+                "includeFileInfo": { "type": "boolean" },
+                "maxFileSize": { "type": "integer", "minimum": 0 },
+                "outputFormat": {
+                    "type": "string",
+                    "enum": ["Text", "JSON", "XML", "HTML", "Markdown"]
+                },
+                "maxDepth": { "type": "integer", "minimum": -1 },
+                "showProgress": { "type": "boolean" },
+                "logLevel": {
+                    "type": "string",
+                    "enum": ["Debug", "Info", "Warning", "Error"]
+                },
+                "logPath": { "type": "string" }
+            }
+        },
+        "filters": {
+            "type": "object",
+            "required": [
+                "excludePatterns",
+                "includePatterns",
+                "maxFileSizeMB",
+                "ignoreHidden"
+            ],
+            "properties": {
+                "excludePatterns": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                },
+                "includePatterns": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                },
+                "maxFileSizeMB": { "type": "integer", "minimum": 0 },
+                "ignoreHidden": { "type": "boolean" }
+            }
+        },
+        "output": {
+            "type": "object",
+            "required": ["formats", "defaultFormat", "encoding"],
+            "properties": {
+                "formats": {
+                    "type": "object",
+                    "required": ["text", "json", "xml", "html", "markdown"],
+                    "properties": {
+                        "text": {
+                            "type": "object",
+                            "required": ["enabled", "indentSize", "showIcons"],
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "indentSize": { "type": "integer", "minimum": 1 },
+                                "showIcons": { "type": "boolean" }
+                            }
+                        },
+                        "json": {
+                            "type": "object",
+                            "required": ["enabled", "prettyPrint"],
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "prettyPrint": { "type": "boolean" }
+                            }
+                        },
+                        "xml": {
+                            "type": "object",
+                            "required": ["enabled", "prettyPrint"],
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "prettyPrint": { "type": "boolean" }
+                            }
+                        },
+                        "html": {
+                            "type": "object",
+                            "required": ["enabled", "template", "css"],
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "template": { "type": "string" },
+                                "css": { "type": "string" }
+                            }
+                        },
+                        "markdown": {
+                            "type": "object",
+                            "required": ["enabled", "includeMetadata"],
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "includeMetadata": { "type": "boolean" }
+                            }
+                        }
+                    }
+                },
+                "defaultFormat": {
+                    "type": "string",
+                    "enum": ["text", "json", "xml", "html", "markdown"]
+                },
+                "encoding": { "type": "string" }
+            }
+        },
+        "performance": {
+            "type": "object",
+            "required": [
+                "chunkSize",
+                "maxMemoryMB",
+                "parallelProcessing",
+                "maxThreads"
+            ],
+            "properties": {
+                "chunkSize": { "type": "integer", "minimum": 1 },
+                "maxMemoryMB": { "type": "integer", "minimum": 1 },
+                "parallelProcessing": { "type": "boolean" },
+                "maxThreads": { "type": "integer", "minimum": 1 }
+            }
+        },
+        "security": {
+            "type": "object",
+            "required": [
+                "enableSymlinks",
+                "allowNetworkPaths",
+                "validatePaths",
+                "sanitizeOutput"
+            ],
+            "properties": {
+                "enableSymlinks": { "type": "boolean" },
+                "allowNetworkPaths": { "type": "boolean" },
+                "validatePaths": { "type": "boolean" },
+                "sanitizeOutput": { "type": "boolean" }
+            }
+        },
+        "platformSpecific": {
+            "type": "object",
+            "required": ["windows", "linux", "macos"],
+            "properties": {
+                "windows": {
+                    "type": "object",
+                    "required": ["useWindowsApi", "longPathsEnabled"],
+                    "properties": {
+                        "useWindowsApi": { "type": "boolean" },
+                        "longPathsEnabled": { "type": "boolean" }
+                    }
+                },
+                "linux": {
+                    "type": "object",
+                    "required": ["followSymlinks", "preservePermissions"],
+                    "properties": {
+                        "followSymlinks": { "type": "boolean" },
+                        "preservePermissions": { "type": "boolean" }
+                    }
+                },
+                "macos": {
+                    "type": "object",
+                    "required": ["followAliases", "preserveMetadata"],
+                    "properties": {
+                        "followAliases": { "type": "boolean" },
+                        "preserveMetadata": { "type": "boolean" }
+                    }
+                }
+            }
+        },
+        "plugins": {
+            "type": "object",
+            "required": ["enabled", "directory", "autoLoad", "allowedTypes"],
+            "properties": {
+                "enabled": { "type": "boolean" },
+                "directory": { "type": "string" },
+                "autoLoad": { "type": "boolean" },
+                "allowedTypes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": ["OutputFormatter", "FilterProvider", "LoggingProvider"]
+                    }
+                }
+            }
+        },
+        "extensibility": {
+            "type": "object",
+            "required": ["interfaces", "hooks"],
+            "properties": {
+                "interfaces": {
+                    "type": "object",
+                    "required": [
+                        "outputFormatter",
+                        "filterProvider",
+                        "loggingProvider"
+                    ],
+                    "properties": {
+                        "outputFormatter": { "type": "string" },
+                        "filterProvider": { "type": "string" },
+                        "loggingProvider": { "type": "string" }
+                    }
+                },
+                "hooks": {
+                    "type": "object",
+                    "required": ["preProcess", "postProcess", "onError"],
+                    "properties": {
+                        "preProcess": { "type": "boolean" },
+                        "postProcess": { "type": "boolean" },
+                        "onError": { "type": "boolean" }
+                    }
+                }
+            }
+        }
+    }
+} 
